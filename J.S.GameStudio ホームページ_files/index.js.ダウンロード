@@ -1,0 +1,119 @@
+const SocialMedia = document.querySelectorAll(".SocialMedia");
+SocialMedia.forEach((element) => {
+  element.addEventListener(
+    "mouseover",
+    () => {
+      element.style.filter = "brightness(120%)";
+      element.style.transform = "scale(1.2)";
+    },
+    false
+  );
+  element.addEventListener(
+    "mouseout",
+    () => {
+      element.style.filter = "brightness(100%)";
+      element.style.transform = "scale(1)";
+    },
+    false
+  );
+  element.addEventListener(
+    "click",
+    () => {
+      element.style.filter = "brightness(30%)";
+      element.style.transform = "scale(0.8)";
+    },
+    false
+  );
+});
+window.addEventListener(
+  "scroll",
+  () => {
+    if (document.documentElement.scrollTop <= 150) {
+      let TB = document.getElementById("Header");
+      TB.style.top = document.documentElement.scrollTop * -2 + "px";
+    }
+  },
+  false
+);
+function OpenSocialMedia(type) {
+  switch (type) {
+    case 0:
+      setTimeout(function () {
+        window.open("https://twitter.com/Switch_Yuuta", "_blank");
+      }, 800);
+      break;
+    case 1:
+      setTimeout(function () {
+        window.open("https://www.youtube.com/c/JUNSUZUGAMES/", "_blank");
+      }, 800);
+      break;
+    case 2:
+      setTimeout(function () {
+        window.open("https://discord.gg/mgmg", "_blank");
+      }, 800);
+      break;
+    case 3:
+      setTimeout(function () {
+        window.open(
+          "https://account.xbox.com/ja-jp/profile?gamertag=JUNmaster108",
+          "_blank"
+        );
+      }, 800);
+      break;
+    case 4:
+      setTimeout(function () {
+        window.open("https://github.com/JUN-SUZU", "_blank");
+      }, 800);
+      break;
+  }
+}
+
+const Header = document.getElementById("HeaderImage");
+const Header2D = Header.getContext("2d");
+const amplitude = 20;// 波の振幅を設定
+const period = 80;// 波の周期を設定
+const speed = 1;// 波の速度を設定
+let x = 0;// 描画を開始する位置を設定
+let y = Header.height / 2;// 波の高さを設定
+function DrawWave() {
+  Header2D.clearRect(0, 0, Header.offsetWidth, Header.offsetHeight);//描画範囲を掃除
+  //波の描画
+  Header2D.beginPath(); Header2D.moveTo(x, y);
+  for (let i = 0; i < Header.offsetWidth; i++) {
+    const angle = (i + x) / period; const wave = Math.sin(angle) * amplitude; Header2D.lineTo(i, y + wave);
+  }
+  Header2D.strokeStyle = "rgb(80,140,255)"; Header2D.stroke();
+  x -= speed; if (x < -Header.offsetWidth) { x = -50; }// 描画位置を更新
+  requestAnimationFrame(DrawWave);// 次の描画を予約
+}
+DrawWave();// 描画開始
+
+function MatchDesign() {
+
+  // ユーザーエージェントによる判別
+  if (/(iPhone|iPad|iPod|Android)/.test(navigator.userAgent)) {
+    // スマートフォン用の表示
+    document.body.style.fontSize = "18px";
+  } else {
+    // PC用の表示
+    document.body.style.fontSize = "24px";
+  }
+  // 画面改造度による崩壊防止
+  if (window.innerWidth < 435) {
+    // スマートフォン用の表示
+  }
+  else if (window.innerWidth < 768) {
+    // タブレット用の表示
+  }
+  else if (window.innerWidth < 1244) {
+    // 低解像度PC用の表示
+  }
+  else {
+    // PC用の表示
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  // 機種別デザインの適用
+  MatchDesign();
+}, false);

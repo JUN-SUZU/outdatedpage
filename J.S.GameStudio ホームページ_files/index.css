@@ -1,0 +1,125 @@
+body {
+	background-color: #1c1600;
+	color: white;
+	text-align: center;
+	font-size: 24px;
+	scroll-behavior: smooth;
+	margin: 0px;
+}
+
+.Header {
+	margin-top: 0px;
+	background-color: rgba(0, 0, 0, 0.8);
+	border-color: rgba(0, 0, 0, 0.8);
+	border-style: solid;
+	border-width: 50px;
+	border-bottom-color: #ffc90e;
+	border-bottom-style: solid;
+	border-bottom-width: 4px;
+	transition: top 3s;
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+}
+
+.HeaderImage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+
+.logoimg {
+	width: calc(10vmin + 50px);
+	height: calc(10vmin + 50px);
+	border-style: solid;
+	border-color: #62beff;
+	border-radius: calc(5vmin + 25px);
+	border-width: 4px;
+	float: left;
+	margin-bottom: 30px;
+}
+
+.Login {
+	color: #fdb000;
+	float: right;
+}
+
+.Articles {
+	display: flex;
+	margin-top: 280px;
+	justify-content: center;
+}
+
+.Article {
+	width: calc(50% - 2vw);
+	margin-left: 1vw;
+	margin-right: 1vw;
+	border: 5px solid white;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+}
+
+.ArticleSection {
+	width: calc(50% - 80px);
+	padding: 40px;
+	margin: 0px;
+	font-size: 0.8em;
+	display: block;
+}
+
+.ArticleImage {
+	width: 50%;
+	margin: 0px;
+	object-fit: cover;
+}
+
+@media (max-width: 1244px) {
+	.Articles {
+		flex-direction: column;
+	}
+
+	.Article {
+		width: calc(100% - 2vw);
+		margin: 10px;
+		flex-direction: column;
+	}
+
+	.ArticleSection {
+		width: 100%;
+		padding: 5px;
+	}
+
+	.ArticleImage {
+		width: 100%;
+	}
+}
+
+.SinceNote {
+	font-family: "Segoe Script", "sans-serif;";
+}
+
+.DetailBar {
+	background-color: rgba(0, 0, 0, 0.9);
+	border-top: 50px solid black;
+}
+
+a {
+	color: white;
+}
+
+.SocialMedia {
+	transition: transform 0.3s, filter 1s;
+	cursor: pointer;
+}
+
+.CopyRight {
+	text-align: right;
+	padding-bottom: 50px;
+	padding-right: 20px;
+	margin: 0px;
+}
